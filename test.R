@@ -1,5 +1,7 @@
 library(tidyverse)
 
+# TODO try to reformulate in reference to: https://andrewcharlesjones.github.io/journal/fisher-scoring.html
+
 family_functions <- function(family) {
   functions <- list(b = function(x){return(0)}, # canonical function
                     b_p = function(x){return(0)}, # first derivative
