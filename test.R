@@ -122,7 +122,7 @@ fisher_scoring <- function(X, y, family, beta, max_iter = 100, tol = 1e-6) {
     # Compute the gradient
     gradient <- t(X) %*% (y - mu)
     # Compute the Hessian
-    hessian <- t(X) %*% W %*% X
+    hessian <- t(X) %*% W %*% X # TODO watch out for the difference between the link and 'h' function, implement as in the article
     
     # Compute the update
     update <- solve(hessian) %*% gradient
@@ -180,3 +180,7 @@ p <- ggplot() +
 
 print(p)
 
+
+fit <- glm(y ~ X - 1, family = gaussian(link = "identity"))
+summary(fit) %>% print()
+# Astounding - it's the same
